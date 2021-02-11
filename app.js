@@ -8,7 +8,6 @@ app.use(express.static('./public'));
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-  console.log(list());
   res.send(`
   <!DOCTYPE html>
   <html>
@@ -56,19 +55,22 @@ app.get('/:id', (req, res, next) => {
       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-    <header><img src="images/two-hikers.png" alt="hikers hiking up mountain">World's Greatest Trails</header>
-    <div class="trail-item">
-    <p>
-      <span class="trails-position">${trail.id}.</span>${trail.name}
-      <small>in ${trail.country}</small>
-    </p>
-    <small class="trail-info">
-      Rating: ${trail.stars} | Difficulty: ${trail.difficulty} | Length: ${trail.length} miles
-    </small>
-    <div>
-      <img src="images/${trail.image}" alt=${trail.imageAlt} width="200">
-    </div>
-    </div>
+      <div class="trail-list">
+        <header><img src="images/two-hikers.png" alt="hikers hiking up mountain">
+        <a href="/">World's Greatest Trails</a></header>
+        <div class="trail-item">
+          <p>
+            <span class="trails-position">${trail.id}.</span>${trail.name}
+            <small>in ${trail.country}</small>
+          </p>
+          <small class="trail-info">
+            Rating: ${trail.stars} | Difficulty: ${trail.difficulty} | Length: ${trail.length} miles
+          </small>
+          <div>
+            <img src="images/${trail.image}" alt=${trail.imageAlt} width="200">
+          </div>
+        </div>
+      </div>
   </body>
   </html>
 `);

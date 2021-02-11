@@ -38,6 +38,9 @@ header > img {
   border: 1px white solid;
   vertical-align: bottom;
 }
+header > a {
+  color: #f6f6ef;
+}
 
 form {
   padding: 15px;
